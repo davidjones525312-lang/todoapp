@@ -1,6 +1,8 @@
 # My Todo App
 
-A modern, responsive todo application built with React, TypeScript, and Supabase.
+A modern, responsive todo application built with React, TypeScript, Tailwind CSS, Supabase, and deployed on Netlify.
+
+**Live Demo:** https://todoappfinalpr.netlify.app
 
 ## Features
 
