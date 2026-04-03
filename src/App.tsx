@@ -155,7 +155,7 @@ function App() {
           <div className="flex justify-between items-start">
             <div>
               <h1 className="font-playfair text-[34px] font-bold text-gradient-purple tracking-tight leading-tight">
-                My Tasks
+                My Todo List
               </h1>
               <p className="text-[14.5px] text-[rgba(15,15,35,0.4)] mt-1.5 font-normal flex items-center gap-1.5">
                 <svg
