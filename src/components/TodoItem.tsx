@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 interface Todo {
   id: number;
   title: string;
+  description: string;
   completed: boolean;
 }
 
@@ -79,25 +80,40 @@ function TodoItem({ todo, onToggle, onDelete }: TodoItemProps) {
         <CheckIcon checked={todo.completed} />
       </div>
 
-      {/* Title */}
-      <span
+      {/* Title and Description */}
+      <div
         onClick={(e: React.MouseEvent) => {
           e.preventDefault();
           e.stopPropagation();
           onToggle(todo.id);
         }}
-        className={`
-          flex-1 text-[15.5px] font-dm font-medium cursor-pointer
-          tracking-tight leading-snug transition-all duration-300
-          ${
-            todo.completed
-              ? "text-black/30 line-through decoration-[rgba(108,99,255,0.3)]"
-              : "text-[rgba(15,15,35,0.85)]"
-          }
-        `}
+        className="flex-1 cursor-pointer"
       >
-        {todo.title}
-      </span>
+        <span
+          className={`
+            block text-[15.5px] font-dm font-medium
+            tracking-tight leading-snug transition-all duration-300
+            ${
+              todo.completed
+                ? "text-black/30 line-through decoration-[rgba(108,99,255,0.3)]"
+                : "text-[rgba(15,15,35,0.85)]"
+            }
+          `}
+        >
+          {todo.title}
+        </span>
+        {todo.description && (
+          <span
+            className={`
+              block text-[12.5px] font-dm font-normal
+              mt-0.5 leading-snug transition-all duration-300
+              ${todo.completed ? "text-black/20" : "text-[rgba(15,15,35,0.4)]"}
+            `}
+          >
+            {todo.description}
+          </span>
+        )}
+      </div>
 
       {/* Delete */}
       <button

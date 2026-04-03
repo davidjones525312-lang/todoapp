@@ -11,6 +11,7 @@ import {
 interface Todo {
   id: number;
   title: string;
+  description: string;
   completed: boolean;
 }
 
@@ -48,11 +49,12 @@ function App() {
     loadTodos();
   }, []);
 
-  async function handleAdd(title: string) {
+  async function handleAdd(title: string, description: string) {
     const tempId = -Date.now();
     const newTodo: Todo = {
       id: tempId,
       title: title,
+      description: description,
       completed: false,
     };
 
@@ -61,6 +63,7 @@ function App() {
     try {
       const savedTodo = await createTodo({
         title: title,
+        description: description,
         completed: false,
       });
       setTodos((prev) => prev.map((t) => (t.id === tempId ? savedTodo : t)));

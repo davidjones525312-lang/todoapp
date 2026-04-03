@@ -3,12 +3,14 @@ import { supabase } from "../utils/supabase";
 export interface Todo {
   id: number;
   title: string;
+  description: string;
   completed: boolean;
   created_at?: string;
 }
 
 interface NewTodo {
   title: string;
+  description: string;
   completed: boolean;
 }
 
